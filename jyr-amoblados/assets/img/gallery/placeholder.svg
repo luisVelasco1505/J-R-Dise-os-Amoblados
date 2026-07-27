@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Imagen de proyecto pendiente de reemplazo">
+  <!-- COMPLETAR: reemplazar por foto real del proyecto -->
+  <rect width="400" height="300" fill="#E6EDF4"/>
+  <g stroke="#D5E1EA" stroke-width="2">
+    <line x1="0" y1="0" x2="400" y2="300"/>
+    <line x1="400" y1="0" x2="0" y2="300"/>
+  </g>
+  <rect x="0" y="0" width="400" height="300" fill="none" stroke="#D5E1EA" stroke-width="4"/>
+  <text x="200" y="155" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" fill="#12324D">Foto proximamente</text>
+</svg>

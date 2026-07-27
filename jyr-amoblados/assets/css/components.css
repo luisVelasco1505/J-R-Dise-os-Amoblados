@@ -1,0 +1,461 @@
+/* ===================== BOTONES ===================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.btn--sm {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+}
+
+.btn--primary {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  box-shadow: 0 4px 12px -8px rgba(10, 32, 54, 0.55);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background-color: var(--color-navy-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px -10px rgba(10, 32, 54, 0.55);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-steel);
+  border-color: var(--color-line);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+  background-color: var(--color-steel);
+  color: var(--color-white);
+}
+
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-line);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  border-color: var(--color-steel);
+  color: var(--color-steel);
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+/* ===================== ENLACES DE NAVEGACION ===================== */
+.site-nav__link {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--space-2);
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--color-muted);
+  transition: color var(--transition);
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--color-steel);
+  transition: right var(--transition);
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible,
+.site-nav__link--active {
+  color: var(--color-steel);
+}
+
+.site-nav__link:hover::after,
+.site-nav__link:focus-visible::after,
+.site-nav__link--active::after {
+  right: 0;
+}
+
+/* ===================== BLUEPRINT SVG (HERO) ===================== */
+.blueprint {
+  width: 100%;
+  height: auto;
+}
+
+.blueprint__shape {
+  fill: none;
+  stroke: var(--color-steel);
+  stroke-width: 2;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: blueprint-draw 2.2s ease forwards;
+}
+
+.blueprint__shape.is-filled {
+  fill: var(--color-steel);
+  fill-opacity: 0;
+  animation: blueprint-draw 2.2s ease forwards, blueprint-fill 0.8s ease forwards 2s;
+}
+
+.blueprint__dimension line {
+  stroke: var(--color-accent);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+
+.blueprint__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--color-navy);
+}
+
+@keyframes blueprint-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes blueprint-fill {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blueprint__shape {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .blueprint__shape.is-filled {
+    fill-opacity: 1;
+  }
+}
+
+/* ===================== CARDS (CATÁLOGO) ===================== */
+.card {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-steel), var(--color-accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 28px -14px rgba(10, 32, 54, 0.3);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card__thumb {
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-stone-2);
+}
+
+.card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__body {
+  padding: var(--space-5);
+}
+
+.card__title {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-2);
+}
+
+.card__text {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* ===================== PASOS (NOSOTROS) ===================== */
+.pasos__item {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.pasos__numero {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.pasos__titulo {
+  font-size: 1.05rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-1);
+}
+
+.pasos__texto {
+  font-size: 0.9rem;
+  color: var(--color-stone-2);
+}
+
+/* ===================== TESTIMONIOS ===================== */
+.testimonio {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  border-top: 3px solid var(--color-steel);
+  padding: var(--space-6);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.testimonio:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 28px -14px rgba(10, 32, 54, 0.25);
+}
+
+.testimonio__estrellas {
+  color: var(--color-gold);
+  letter-spacing: 2px;
+  margin-bottom: var(--space-4);
+}
+
+.testimonio__cita {
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  margin-bottom: var(--space-4);
+}
+
+.testimonio__autor {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-steel);
+}
+
+/* ===================== CONTACTO ===================== */
+.contacto__lista {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.contacto__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+  min-width: 0;
+}
+
+.contacto__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-steel);
+}
+
+.contacto__valor {
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.contacto__valor--link:hover,
+.contacto__valor--link:focus-visible {
+  color: var(--color-steel);
+  text-decoration: underline;
+}
+
+/* ===================== FORMULARIO ===================== */
+.form {
+  display: grid;
+  gap: var(--space-4);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: var(--space-6);
+}
+
+.form__field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.form__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.form__input {
+  padding: var(--space-3);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background-color: var(--color-stone);
+}
+
+.form__input:focus-visible {
+  border-color: var(--color-steel);
+}
+
+.form__input--textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form__field--invalid .form__input {
+  border-color: #B3261E;
+}
+
+.form__error {
+  font-size: 0.8rem;
+  color: #B3261E;
+  min-height: 1em;
+}
+
+.form__submit {
+  justify-self: start;
+  margin-top: var(--space-2);
+}
+
+.form__status {
+  font-size: 0.9rem;
+  color: var(--color-steel);
+  min-height: 1.2em;
+}
+
+/* ===================== BOTÓN FLOTANTE WHATSAPP ===================== */
+.whatsapp-widget {
+  position: fixed;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  z-index: 800;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+.whatsapp-float {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #25D366;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px -6px rgba(10, 32, 54, 0.4);
+  transition: transform var(--transition);
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+  transform: scale(1.08);
+}
+
+.whatsapp-bubble {
+  position: relative;
+  max-width: 220px;
+  background-color: var(--color-white);
+  color: var(--color-ink);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  box-shadow: 0 8px 20px -6px rgba(10, 32, 54, 0.4);
+  animation: whatsapp-bubble-in 0.25s ease;
+}
+
+.whatsapp-bubble::after {
+  content: "";
+  position: absolute;
+  right: var(--space-5);
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-white);
+  transform: rotate(45deg);
+}
+
+.whatsapp-bubble.is-hidden {
+  display: none;
+}
+
+.whatsapp-bubble__link {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+  padding-right: var(--space-3);
+}
+
+.whatsapp-bubble__close {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+
+.whatsapp-bubble__close:hover,
+.whatsapp-bubble__close:focus-visible {
+  transform: scale(1.1);
+}
+
+@keyframes whatsapp-bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
