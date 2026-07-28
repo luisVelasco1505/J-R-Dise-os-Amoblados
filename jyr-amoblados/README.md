@@ -107,3 +107,10 @@ para ubicarlos fácilmente. Antes de publicar el sitio, el cliente debe reemplaz
 - Se respeta `prefers-reduced-motion` (deshabilita la animación del plano técnico y
   la marquesina de materiales) y se definen estados `:focus-visible` en todos los
   elementos interactivos.
+- Imágenes fotográficas (hero y showcase): cada una tiene versión `.webp` y un
+  fallback `.jpg`, servidas con `<picture>`. Las fuentes se redimensionaron a su
+  tamaño máximo real de renderizado (960px para el showcase, ~1254px para el hero)
+  para evitar servir fotos de cámara sin comprimir. Si se agregan fotos nuevas,
+  conviene generar ambos formatos con la misma lógica antes de subirlas (por
+  ejemplo con `sharp`: resize al ancho de renderizado + `.jpeg({quality})` /
+  `.webp({quality})`) en vez de subir el archivo de cámara tal cual.
