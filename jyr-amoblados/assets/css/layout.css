@@ -587,6 +587,25 @@
   }
 }
 
+/* ===================== TARJETA CON SLIDESHOW (DISEÑOS PROPIOS) ===================== */
+.card__thumb--slideshow {
+  position: relative;
+}
+
+.card__thumb--slideshow .card__thumb-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1000ms ease-in-out;
+}
+
+.card__thumb-slide.is-active {
+  opacity: 1;
+}
+
 /* ===================== NOSOTROS ===================== */
 .nosotros {
   position: relative;

@@ -42,3 +42,20 @@ if (showcaseTrack) {
   }
 }
 
+const thumbSlideshows = document.querySelectorAll(".card__thumb--slideshow");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+thumbSlideshows.forEach((slideshow) => {
+  const slides = Array.from(slideshow.children);
+
+  if (slides.length > 1 && !prefersReducedMotion) {
+    let activeIndex = Math.max(slides.findIndex((slide) => slide.classList.contains("is-active")), 0);
+
+    window.setInterval(() => {
+      slides[activeIndex].classList.remove("is-active");
+      activeIndex = (activeIndex + 1) % slides.length;
+      slides[activeIndex].classList.add("is-active");
+    }, 4000);
+  }
+});
+
